@@ -1,0 +1,71 @@
+PLAN MAESTRO AGRO 360° — FINSUS GLOBAL
+========================================
+Paquete entregado a: Diego Reyes
+Fecha de exportación: 09 de septiembre de 2026
+
+CONTENIDO
+---------
+index.html — Dashboard completo, un único archivo autocontenido (HTML + CSS + JS).
+
+CÓMO ABRIRLO
+------------
+Opción A (más simple): doble clic en index.html. Se abre en cualquier navegador
+(Chrome recomendado), sin necesidad de instalar nada ni de conexión a servidor propio.
+
+Opción B (funciones con IA real): subir el archivo como artifact dentro de Claude.ai
+para que el Asistente IA (módulo 10) pueda usar la API de Claude sin configuración
+adicional. Fuera de Claude.ai, el asistente funciona si se configura una API key
+propia de Anthropic (ver instrucciones dentro del propio módulo).
+
+MÓDULOS INCLUIDOS (10 en total, navegación por barra lateral izquierda)
+------------------------------------------------------------------------
+01. FX & Sensibilidad — Tipo de cambio USD/MXN en vivo (Frankfurter API) con
+    drill-down anual/mensual/diario y simulador de sensibilidad exportadora.
+02. Clima Agro — Clima en tiempo real y 10 años de histórico (Open-Meteo) para
+    13 regiones agropecuarias, más panel de riesgo climático (heladas, lluvia
+    intensa) y fichas de referencia de plagas (SENASICA) y estacionalidad (SIAP).
+03. Correlación — Motor de correlación de Pearson con selector de 6 pares de
+    variables (FX-Clima, FX-PIB, FX-Inflación, Temperatura-Precipitación,
+    FX-Precio FOB Tomate, FX-Precio FOB Zanahoria).
+04. Centro de Inteligencia Agro — El módulo más extenso: 5 sub-pestañas
+    (Precios de Mercado, Producción/NASS, Comercio Internacional, Commodities/
+    Alpha Vantage, Indicadores/FRED) y 13 análisis de precio FOB por producto
+    con gráficas interactivas: Tomate, Zanahoria, Sandía, Plátano, Piña,
+    Pimiento Morrón, Mango, Limón Persa, Lechuga Iceberg, Fresa, Espárrago,
+    Elote Dulce y Cebolla — cada una con su propio enfoque visual (bandas de
+    incertidumbre, simuladores de arancel, calculadoras de cobertura, relojes
+    estacionales, comparativas entre productos, etc.).
+05. Indicadores Macro — PIB e inflación de México (Banco Mundial) + Bitcoin
+    como referencia de cobertura (CoinGecko).
+06. Biblioteca & Plan Maestro — Los 5 pilares estratégicos FINSUS + biblioteca
+    de documentos propia (enlaces externos o archivos pequeños incrustados).
+07. Resumen Ejecutivo — Diagnóstico automatizado (heurísticas) que cruza los
+    datos de FX, clima, precios y macro en tiempo real.
+08. Agro Plataforma — Motor de orquestación de datos con buscador en lenguaje
+    natural y consultas de referencia del SIAP para 13 cultivos (cierre 2024).
+09. CRM Agro360 — Centro de Relaciones Agro con 81 contactos reales (cebolla,
+    aguacate, ajo, arándano, zanahoria, tomate rojo), vistas Kanban/Tabla/
+    Calendario/Mapa, bitácora de interacciones, importación/exportación Excel,
+    y recomendaciones automáticas (prospectos olvidados, riesgo de pérdida).
+10. Asistente IA — Chatbot con acceso al contexto completo del dashboard.
+
+NOTAS IMPORTANTES SOBRE LOS DATOS
+-----------------------------------
+- Los módulos 01, 02, 05 (PIB/inflación/Bitcoin) consultan APIs públicas en
+  tiempo real: no requieren configuración.
+- El Centro de Inteligencia Agro (módulo 04) y el Asistente IA requieren API
+  keys propias del usuario para datos en vivo de USDA NASS, FRED y Alpha
+  Vantage; sin ellas, muestran datos de referencia claramente etiquetados.
+- El CRM (módulo 09) persiste sus datos automáticamente solo dentro de
+  Claude.ai. Si se usa el archivo localmente, los cambios se conservan
+  únicamente durante esa sesión del navegador — usar el botón "Exportar a
+  Excel" para respaldar la información.
+- Todos los análisis de precio FOB por producto (módulo 04) provienen de
+  documentos de análisis de mercado proporcionados durante el desarrollo del
+  proyecto (USDA-AMS, USDA ERS, Tridge, FreshPlaza, entre otras fuentes
+  citadas dentro de cada tarjeta), no de una API en vivo específica por
+  producto.
+
+Cualquier duda sobre el funcionamiento de un módulo específico, revisar los
+recuadros de "Fuente" al pie de cada sección — cada uno detalla su origen de
+datos y limitaciones conocidas.
