@@ -1,0 +1,17 @@
+{
+  "name": "Plan Maestro Agroindustria",
+  "version": "V24",
+  "entrypoint": "index.html",
+  "language": "es-MX",
+  "portable": true,
+  "financial_proxy": {
+    "yield_reference_pct": 24.0,
+    "commission_pct": 1.5,
+    "funding_cost_pct": 11.0,
+    "expected_loss_pct": 3.0,
+    "pre_opex_contribution_pct": 11.5,
+    "opex": "Por validar",
+    "economics_review": "Mensual",
+    "operating_governance": "Semanal"
+  }
+}
