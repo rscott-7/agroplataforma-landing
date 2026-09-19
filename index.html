@@ -97,6 +97,60 @@
   @media(max-width:560px){.v25-kpis,.v25-summary{grid-template-columns:1fr}.v25-bar-row{grid-template-columns:90px 1fr}.v25-amount{grid-column:2}}
 </style>
 
+
+<style>
+/* V27 · Vista panorámica detallada */
+#ecosistema .eco-cards-detail{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+#ecosistema .eco-card-wide{grid-column:1/-1}
+#ecosistema .eco-intro{margin:0;color:var(--texto-secundario);font-size:12px;line-height:1.45}
+#ecosistema .eco-detail{display:flex;flex-direction:column;gap:8px}
+#ecosistema .eco-detail p{margin:0;color:var(--texto-secundario);font-size:11.5px;line-height:1.46}
+#ecosistema .eco-detail ul{margin:0;padding:0;gap:6px}
+#ecosistema .eco-detail li{font-size:11.5px;line-height:1.45}
+#ecosistema .eco-facts{display:grid;gap:0;border:1px solid var(--linea);border-radius:12px;overflow:hidden;margin:2px 0 4px}
+#ecosistema .eco-facts div{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:8px 10px;border-bottom:1px solid var(--linea-fina);background:var(--superficie-2)}
+#ecosistema .eco-facts div:last-child{border-bottom:0}
+#ecosistema .eco-facts span{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--texto-secundario);font-weight:700}
+#ecosistema .eco-facts strong{font-size:10.5px;line-height:1.35;color:var(--texto)}
+#ecosistema .eco-ask{margin-top:2px;padding:9px 11px;border-radius:10px;background:var(--superficie-2);border-left:3px solid var(--coral);font-size:10.5px;line-height:1.4;color:var(--texto-secundario)}
+@media(max-width:820px){#ecosistema .eco-cards-detail{grid-template-columns:1fr}#ecosistema .eco-card-wide{grid-column:auto}}
+@media(max-width:520px){#ecosistema .eco-facts div{grid-template-columns:1fr;gap:3px}}
+</style>
+
+<style>
+/* V28 · Vista panorámica con jerarquía ejecutiva */
+.eco-exec-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin:20px 0}
+.eco-exec-card{position:relative;overflow:hidden;background:var(--superficie);border:1px solid var(--linea);border-radius:22px;padding:19px;box-shadow:0 8px 24px rgba(34,25,55,.045)}
+.eco-exec-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent,var(--morado-hondo))}
+.eco-exec-card.wide{grid-column:1/-1}
+.eco-exec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:13px}
+.eco-exec-title{display:flex;align-items:center;gap:9px;margin:0;font-size:16px;color:var(--texto)}
+.eco-exec-kicker{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--texto-secundario);margin-bottom:4px}
+.eco-status{white-space:nowrap;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:6px 9px;border-radius:999px;background:var(--superficie-2);border:1px solid var(--linea);color:var(--texto-secundario)}
+.eco-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:11px 0 14px}
+.eco-metric{background:var(--superficie-2);border:1px solid var(--linea-fina);border-radius:13px;padding:10px}
+.eco-metric b{display:block;font-size:17px;line-height:1.05;color:var(--texto);margin-bottom:3px}
+.eco-metric span{font-size:9px;line-height:1.25;color:var(--texto-secundario);text-transform:uppercase;letter-spacing:.04em}
+.eco-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.eco-mini{border-top:2px solid var(--linea);padding-top:9px}
+.eco-mini h4{font-size:10px;text-transform:uppercase;letter-spacing:.07em;margin:0 0 5px;color:var(--texto-secundario)}
+.eco-mini p,.eco-mini li{font-size:10.5px;line-height:1.45;color:var(--texto-secundario)}
+.eco-mini p{margin:0}.eco-mini ul{margin:5px 0 0;padding-left:15px}
+.eco-next{margin-top:12px;border-radius:13px;padding:10px 12px;background:linear-gradient(115deg,var(--morado-hondo),var(--morado-alto));color:#fff;font-size:10.5px;line-height:1.4}
+.eco-next strong{color:#fff}
+.eco-risk{margin-top:10px;border-left:4px solid #D92D20;background:rgba(217,45,32,.06);padding:9px 11px;border-radius:0 11px 11px 0;font-size:10.5px;line-height:1.4;color:var(--texto-secundario)}
+.eco-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0}
+.eco-flow div{position:relative;text-align:center;padding:9px 7px;border-radius:11px;background:var(--superficie-2);border:1px solid var(--linea-fina);font-size:9.5px;line-height:1.3;color:var(--texto-secundario)}
+.eco-flow div:not(:last-child):after{content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-weight:900;color:var(--coral);z-index:2}
+.eco-flow b{display:block;color:var(--texto);font-size:10.5px;margin-bottom:2px}
+.eco-crosssell{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;align-items:center;margin-top:17px;padding:17px 18px;border-radius:20px;background:var(--morado-hondo);color:#fff}
+.eco-crosssell h3{color:#fff;margin:0 0 5px;font-size:16px}.eco-crosssell p{margin:0;color:rgba(255,255,255,.76);font-size:10.5px;line-height:1.45}
+.eco-crosssell-tags{display:flex;flex-wrap:wrap;gap:6px}
+.eco-crosssell-tags span{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);font-size:9px;font-weight:700}
+@media(max-width:900px){.eco-exec-grid,.eco-crosssell{grid-template-columns:1fr}.eco-columns{grid-template-columns:1fr}.eco-metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.eco-metrics,.eco-flow{grid-template-columns:1fr}.eco-flow div:not(:last-child):after{display:none}}
+</style>
+
 </head><body>
 <meta charset="utf-8">
 <title>Plan Maestro Agroindustria</title>
@@ -815,69 +869,79 @@
       </svg>
     </div>
 
-    <div class="eco-cards">
-      <article class="eco-card">
-        <h3><span class="eco-dot" style="background:#3A3960"></span>Banca de Desarrollo</h3>
-        <ul>
-          <li><strong>FIRA:</strong> excepción de antigüedad en trámite (BM/SHCP); Plan B: adquisición de SFI SOFOM, línea $2,000 MDP, ahorro estimado <strong>$37 MDP/año</strong></li>
-          <li><strong>NAFIN:</strong> AFACs en revisión CNBV — única barrera pendiente</li>
-          <li><strong>NadBank:</strong> Programa PAFi hasta <strong>US$300M</strong>, créditos hasta US$50M, plazo 180 meses</li>
-        </ul>
-      </article>
-      <article class="eco-card">
-        <h3><span class="eco-dot" style="background:#4E8F63"></span>Grupo Verde Nero</h3>
-        <ul>
-          <li>Holding <strong>Verdant Ridge Holdings LLC</strong> en preparación; 4 subsidiarias operando (Campo Hass, Green Harvest, Nexxus Harvest MX/US)</li>
-          <li>Crédito puente Finsus <strong>$70M</strong> (22%) + Bancomext <strong>USD $22M</strong> a 12 años, cobertura FIRA ≥161%</li>
-        </ul>
-      </article>
-      <article class="eco-card">
-        <h3><span class="eco-dot" style="background:#FBAE40"></span>Citrus Capital</h3>
-        <ul>
-          <li>Factoraje de perecederos, corredor MX–EE.UU. — mercado <strong>USD $20,000M</strong>, CAGR 7.3%</li>
-          <li>Piloto Finsus–Onix: <strong>USD ~$1.04M</strong>, 18%, 60 meses, aforo 80%, seguro Solunion USD $500K</li>
-          <li>Riesgo activo: límite de concentración 20%/comprador ya excedido en el pipeline — vigilar</li>
-        </ul>
-      </article>
-      <article class="eco-card">
-        <h3><span class="eco-dot" style="background:#FF5F54"></span>Crédito Agroindustrial</h3>
-        <ul>
-          <li><strong>Verqor:</strong> alianza vigente + convenio en renegociación (piso 24%) + propuesta de M&amp;A/swap accionario (cifras aún sin reconciliar)</li>
-          <li><strong>Agrobroker:</strong> capacidad transversal de originación especializada, 100% digital y potenciada por agentes de IA; conecta oportunidades con estructuras financieras viables</li>
-          <li><strong>Almacenadora AlSur:</strong> prospecto en evaluación, CEDE/Bonos de Prenda como garantía alterna</li>
-        </ul>
-      </article>
-      <article class="eco-card">
-        <h3><span class="eco-dot" style="background:#3E7CB1"></span>Café Azul (MFCA)</h3>
-        <ul>
-          <li>Piloto <strong>$50M</strong> (arranca en $10M); cascada Finsus→SOFOM 12-14%, SOFOM→Productor 18-22%</li>
-          <li>DSCR objetivo ≥1.3x, IMOR ≤5%; cobertura paramétrica Pro Agro + Mapfre</li>
-          <li>Café Azul (off-taker): term sheet propio MX$106.5M a 13%, 59 meses, garantía inmuebles TX</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="transversal-stack">
-      <div class="transversal-band broker">
-        <div class="transversal-icon"><svg><use href="#i-handshake"/></svg></div>
-        <div class="transversal-copy">
-          <div class="transversal-badge">Iniciativa transversal · Originación especializada</div>
-          <h3>Agrobroker</h3>
-          <p>Red digital de brokers agroindustriales con criterio financiero, conocimiento de riesgos y capacidad de estructuración, amplificada por agentes especializados de IA.</p>
+    <div class="eco-exec-grid">
+      <article class="eco-exec-card wide" style="--accent:#3A3960">
+        <div class="eco-exec-head"><div><div class="eco-exec-kicker">01 · Habilitación institucional</div><h3 class="eco-exec-title">Banca de Desarrollo</h3></div><span class="eco-status">3 líneas en paralelo</span></div>
+        <div class="eco-metrics">
+          <div class="eco-metric"><b>$2,000 MDP</b><span>Línea SFI · FIRA 2026</span></div>
+          <div class="eco-metric"><b>$37 MDP/año</b><span>Ahorro estimado</span></div>
+          <div class="eco-metric"><b>$500 MDP</b><span>NAFIN · arranque</span></div>
+          <div class="eco-metric"><b>US$300 M</b><span>NADBank · PAFi</span></div>
         </div>
-        <a class="transversal-link" href="#anexo-agrobroker">Ver anexo A2 →</a>
-      </div>
+        <div class="eco-columns">
+          <div class="eco-mini"><h4>FIRA · excepción</h4><p>Exige tres años de rentabilidad continua; Finsus va a la mitad. Excepción en trámite ante Banco de México y SHCP. Siguiente movimiento: reunión —aún por agendar— entre CEO Finsus y DG FIRA.</p></div>
+          <div class="eco-mini"><h4>Vías paralelas</h4><p><strong>SFI SOFOM:</strong> registrada ante FIRA desde 2015; línea 2026 a TIIE + 1.30 pp vs TIIE + 4.00 pp banca comercial. Al cierre, Finsus opera bajo línea FIRA de inmediato.</p><p style="margin-top:5px"><strong>Aprendizaje:</strong> primera disposición a 9.70% sobre cartera elegible para conocer procesos y programas FIRA.</p></div>
+          <div class="eco-mini"><h4>NAFIN + NADBank</h4><p><strong>NAFIN:</strong> única barrera pendiente, registro de AFAC como capital social ante CNBV; resolución estimada a principios de diciembre 2026.</p><p style="margin-top:5px"><strong>NADBank:</strong> hasta US$50 M por crédito, 180 meses, franja de 300 km, sustentabilidad. Gestor Iván Barona; proyectos en Mexicali, Sonora y tierra Finsus en Tamaulipas.</p></div>
+        </div>
+        <div class="eco-next"><strong>ASK / NEXT STEP</strong> · reunión CEO Finsus – DG FIRA · resolución CNBV sobre AFAC · primer proyecto piloto PAFi.</div>
+      </article>
+
+      <article class="eco-exec-card" style="--accent:#4E8F63">
+        <div class="eco-exec-head"><div><div class="eco-exec-kicker">02 · Comercialización + activos</div><h3 class="eco-exec-title">Grupo Verde Nero</h3></div><span class="eco-status">Puente a Comité</span></div>
+        <p class="eco-intro">Grupo agroindustrial verticalmente integrado · cuatro subsidiarias en operación · clientes activos: Costco y Walmart México, Vallarta Supermarkets, Smart &amp; Final, Danny Produce.</p>
+        <div class="eco-metrics">
+          <div class="eco-metric"><b>$70 MDP</b><span>Puente Finsus</span></div>
+          <div class="eco-metric"><b>≤ 3 meses</b><span>Plazo puente</span></div>
+          <div class="eco-metric"><b>US$15 M</b><span>Bancomext pre-aut.</span></div>
+          <div class="eco-metric"><b>12 años</b><span>Repago Bancomext</span></div>
+        </div>
+        <div class="eco-mini"><h4>Estructura</h4><p><strong>Acreditada:</strong> MAYJU AGROEXPORT, S.P.R. de R.L. · <strong>Destino:</strong> Rancho Morelia + Los Girasoles · <strong>Mecanismo:</strong> domiciliación irrevocable en cuenta Finsus.</p></div>
+        <div class="eco-risk"><strong>RIESGO ALTO.</strong> Sin garantía real vigente durante el puente; el repago depende de la dispersión de Bancomext. Prendas, avales y promesa de hipoteca se activan solo ante incumplimiento.</div>
+        <div class="eco-mini" style="margin-top:10px"><h4>Bloquean desembolso</h4><p>Respuesta formal Bancomext · extinción del usufructo Los Girasoles · avalúo certificado · documentación Rancho Palmarito · prepago sin penalidad.</p></div>
+        <div class="eco-next"><strong>ASK / NEXT STEP</strong> · confirmación Bancomext · avalúo y usufructo · presentación a Comité de Crédito.</div>
+      </article>
+
+      <article class="eco-exec-card" style="--accent:#FBAE40">
+        <div class="eco-exec-head"><div><div class="eco-exec-kicker">03 · Liquidez internacional</div><h3 class="eco-exec-title">Citrus Capital</h3></div><span class="eco-status">Factoraje internacional</span></div>
+        <div class="eco-metrics">
+          <div class="eco-metric"><b>US$20,000M</b><span>Mercado anual</span></div>
+          <div class="eco-metric"><b>7.3%</b><span>CAGR</span></div>
+          <div class="eco-metric"><b>~US$1.04M</b><span>Piloto Finsus</span></div>
+          <div class="eco-metric"><b>18%</b><span>Tasa piloto</span></div>
+        </div>
+        <div class="eco-flow"><div><b>Factura</b>Exportador</div><div><b>80%</b>Al productor</div><div><b>Entrega</b>Producto</div><div><b>Cobro</b>Comprador USA</div><div><b>20%</b>Menos intereses</div></div>
+        <div class="eco-mini"><h4>Modelo + objetivo</h4><p>Revolvente a 60 meses, prenda sobre cartera y aval de socios; seguro Solunion. Validar y escalar el modelo y, en segunda etapa, incorporar capital privado.</p></div>
+        <div class="eco-risk"><strong>RIESGO ACTIVO.</strong> Concentración por comprador de 25% vs tope de 20% — Falcon Produce y Stonehill. Corregir antes del arranque.</div>
+      </article>
+
+      <article class="eco-exec-card" style="--accent:#FF5F54">
+        <div class="eco-exec-head"><div><div class="eco-exec-kicker">04 · Originación + estructura</div><h3 class="eco-exec-title">Crédito Agroindustrial</h3></div><span class="eco-status">Capacidad transversal</span></div>
+        <div class="eco-columns">
+          <div class="eco-mini"><h4>Verqor</h4><p>Alianza vigente y en operación. Convenio en revisión de Legal sobre piso de tasa de <strong>24%</strong>. M&amp;A vía swap accionario sujeto a Go/No-Go por NPL observado; cifras aún sin reconciliar.</p></div>
+          <div class="eco-mini"><h4>Agrobroker</h4><p><strong>Originación especializada, 100% digital y potenciada por agentes de IA.</strong> Prospecta, precalifica y arma expediente; traduce oportunidades en estructuras financiables para todos los canales.</p></div>
+          <div class="eco-mini"><h4>Almacenadora AlSur</h4><p>Garantía alterna mediante <strong>Certificado de Depósito y Bono de Prenda</strong>: la mercancía respalda el crédito. Encaja con almacenamiento especializado priorizado en expansión.</p></div>
+        </div>
+      </article>
+
+      <article class="eco-exec-card" style="--accent:#3E7CB1">
+        <div class="eco-exec-head"><div><div class="eco-exec-kicker">05 · Cadena de valor</div><h3 class="eco-exec-title">Café Azul (MFCA)</h3></div><span class="eco-status">Piloto escalable</span></div>
+        <div class="eco-metrics">
+          <div class="eco-metric"><b>$50 M</b><span>Piloto total</span></div>
+          <div class="eco-metric"><b>$10 M</b><span>Arranque</span></div>
+          <div class="eco-metric"><b>16% → 20%</b><span>Finsus → SOFOM → productor</span></div>
+          <div class="eco-metric"><b>≥1.3x</b><span>DSCR objetivo</span></div>
+        </div>
+        <div class="eco-flow"><div><b>Finsus</b>Fondea SOFOM</div><div><b>SOFOM</b>Crédito de avío</div><div><b>Cuenta</b>Controlada Finsus</div><div><b>Exportación</b>Cascada de cobro</div><div><b>Repago</b>No flujo libre</div></div>
+        <div class="eco-mini"><h4>Protección + demanda</h4><p><strong>IMOR ≤5%.</strong> Garantía no hipotecaria: cobertura paramétrica Pro Agro + Mapfre. Café Azul ancla la demanda con contratos de largo plazo con líneas de crucero.</p></div>
+        <div class="eco-next"><strong>POR QUÉ CIERRA</strong> · el comprador final está contratado antes de sembrar: el crédito se origina contra demanda validada, no contra expectativa de precio.</div>
+      </article>
     </div>
 
-    <div class="callout">
-      <h4>Por qué es un ecosistema y no cinco iniciativas sueltas</h4>
-      <p class="lead">El crédito es la puerta de entrada — 360 Polaris exige que cada pilar regrese cross-sell a Finsus.</p>
-      <ul>
-        <li>Cada pilar (banca de desarrollo, Verde Nero, Citrus, crédito agroindustrial, Café Azul) aporta un excedente distinto que puede capturarse en <strong>captación</strong>, <strong>tesorería</strong>, <strong>dispersión, paneles solares, autos, camiones, maquinaria, agroinsumos, colaboradores / crédito de nómina</strong> o <strong>inversión a plazo</strong> de socios y directivos de los agronegocios.</li>
-        <li>El fondeo institucional abarata el costo del portafolio; el <strong>Centro de Agronegocios</strong> alimenta oportunidades y modelos; <strong>Agrobroker</strong> convierte esas oportunidades en originación especializada y estructuras financiables</li>
-      </ul>
-      <div class="ask-line"><strong>Ask:</strong> tratar los cinco pilares como un portafolio único de relación, no como créditos aislados — cada aprobación de comité debe evaluarse también por su cross-sell 360 Polaris.</div>
+    <div class="eco-crosssell">
+      <div><div class="eco-exec-kicker" style="color:rgba(255,255,255,.6)">360 Polaris · tesis de ecosistema</div><h3>El crédito es la puerta de entrada; el valor está en capturar la relación completa.</h3><p>Cada pilar debe regresar cross-sell a Finsus. El fondeo institucional reduce el costo del portafolio; Centro de Agronegocios alimenta oportunidades y Agrobroker las convierte en originación especializada y estructuras financiables.</p></div>
+      <div class="eco-crosssell-tags"><span>Captación</span><span>Tesorería</span><span>Dispersión</span><span>Paneles solares</span><span>Autos / camiones</span><span>Maquinaria</span><span>Agroinsumos</span><span>Crédito de nómina</span><span>Inversión a plazo</span></div>
     </div>
+    <div class="eco-next" style="margin-bottom:18px"><strong>ASK 360 POLARIS</strong> · tratar los cinco pilares como un portafolio único de relación, no como créditos aislados; cada aprobación de Comité debe evaluarse también por su cross-sell.</div>
 
     <div class="slide-foot"><span>Ecosistema · Confidencial</span><span class="idx">00 / 06</span><span class="foot-actions"><a class="nav-pill" href="#inicio">↑ Volver al inicio</a><a class="nav-pill primary" href="#consejo-vision">Siguiente →</a></span></div>
   </section>
