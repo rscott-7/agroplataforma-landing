@@ -1,17 +1,17 @@
 {
   "corte": {
-    "largo": "22 de septiembre de 2026",
-    "corto": "22 Sep 2026"
+    "largo": "24 de septiembre de 2026",
+    "corto": "24 Sep 2026"
   },
   "verqor": {
-    "capturas": 98,
-    "preaprobados": 14,
-    "monto_preaprobado": "$6.81M",
-    "monto_autorizado": "$1.79M",
-    "tasa_promedio": "41.64%",
-    "aceptados": 3,
-    "rechazados": 4,
-    "negociacion": 4,
-    "pendientes": 3
+    "capturas": 123,
+    "preaprobados": 16,
+    "monto_preaprobado": "$7.41M",
+    "monto_autorizado": "$3.13M",
+    "tasa_promedio": "30.00%",
+    "aceptados": 7,
+    "rechazados": 3,
+    "negociacion": 3,
+    "pendientes": 2
   }
 }
