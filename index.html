@@ -1586,7 +1586,7 @@
       </div>
       <div class="callout" style="margin-top:16px">
         <h4>Lectura ejecutiva</h4>
-        <p class="lead"><strong>$6.81M</strong> preaprobados frente a <strong>$1.79M</strong> autorizados. El principal punto de atención comercial es la <strong>tasa promedio ofertada de 41.64%</strong>; en el detalle del archivo, “tasa muy alta” aparece repetidamente como motivo de rechazo o negociación.</p>
+        <p class="lead" data-pm-html="lecturas_ejecutivas.verqor">$6.81M preaprobados frente a $1.79M autorizados. El principal punto de atención comercial es la tasa promedio ofertada de 41.64%; en el detalle del archivo, “tasa muy alta” aparece repetidamente como motivo de rechazo o negociación.</p>
       </div>
       <div class="pipeline-insight">
         <div class="insight"><strong>64 rechazos</strong>del universo de capturas.</div>
@@ -1933,6 +1933,10 @@
     .then(r=>{if(!r.ok) throw new Error('data.json '+r.status); return r.json();})
     .then(data=>{
       document.querySelectorAll('[data-pm]').forEach(el=>{const v=get(data,el.dataset.pm); if(v!==undefined&&v!==null) el.textContent=v;});
+      document.querySelectorAll('[data-pm-html]').forEach(el=>{
+        const v=get(data,el.dataset.pmHtml);
+        if(v!==undefined&&v!==null) el.textContent=String(v);
+      });
       document.querySelectorAll('[data-pm-width]').forEach(el=>{const v=get(data,el.dataset.pmWidth); if(v!==undefined&&v!==null) el.style.width=String(v);});
 
       // KPI derivado: conversión = preaprobados / capturas. No se captura manualmente en data.json.
