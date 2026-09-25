@@ -162,6 +162,12 @@
 </style>
 
 
+
+<style id="pm-delta-style">
+.pm-delta{display:block;margin-top:5px;font-size:11px;font-weight:800;letter-spacing:.01em}
+.pm-delta.up{color:#2F6B45}.pm-delta.down{color:#A64B3C}.pm-delta.flat{color:#6f6e7e}
+</style>
+
 </head><body>
 <meta charset="utf-8">
 <title>Plan Maestro Agroindustria</title>
@@ -1539,11 +1545,11 @@
   <p class="sub">Tablero ejecutivo del canal Verqor · corte <span data-pm="corte.corto">22 Sep 2026</span>. De la captura a la autorización, con foco en conversión, monto, condiciones y seguimiento.</p>
 
   <div class="v25-kpis">
-    <div class="v25-kpi"><div class="lbl">Total de capturas</div><div class="num" data-pm="verqor.capturas">98</div><div class="note">Prospectos incorporados al proceso de onboarding.</div></div>
-    <div class="v25-kpi green"><div class="lbl">Preaprobados</div><div class="num" data-pm="verqor.preaprobados">14</div><div class="note"><span data-pm-calc="verqor.conversion">14.3%</span> de las capturas llegaron a preaprobación.</div></div>
-    <div class="v25-kpi blue"><div class="lbl">Monto aprobado / preaprobado</div><div class="num" data-pm="verqor.monto_preaprobado">$6.81M</div><div class="note">MXN · monto total preaprobado reportado en el dashboard fuente.</div></div>
-    <div class="v25-kpi green"><div class="lbl">Monto autorizado</div><div class="num" data-pm="verqor.monto_autorizado">$1.79M</div><div class="note">MXN · 3 operaciones aceptadas/autorizadas.</div></div>
-    <div class="v25-kpi danger"><div class="lbl">Tasa promedio ofertada</div><div class="num" data-pm="verqor.tasa_promedio">41.64%</div><div class="note">Indicador crítico: la tasa aparece reiteradamente como motivo de rechazo o negociación.</div></div>
+    <div class="v25-kpi"><div class="lbl">Total de capturas</div><div class="num" data-pm="verqor.capturas">98</div><div class="note">Prospectos incorporados al proceso de onboarding. <span class="pm-delta" data-pm-delta="capturas"></span></div></div>
+    <div class="v25-kpi green"><div class="lbl">Preaprobados</div><div class="num" data-pm="verqor.preaprobados">14</div><div class="note"><span data-pm-calc="verqor.conversion">14.3%</span> de las capturas llegaron a preaprobación. <span class="pm-delta" data-pm-delta="preaprobados"></span></div></div>
+    <div class="v25-kpi blue"><div class="lbl">Monto aprobado / preaprobado</div><div class="num" data-pm="verqor.monto_preaprobado">$6.81M</div><div class="note">MXN · monto total preaprobado reportado en el dashboard fuente. <span class="pm-delta" data-pm-delta="monto_preaprobado"></span></div></div>
+    <div class="v25-kpi green"><div class="lbl">Monto autorizado</div><div class="num" data-pm="verqor.monto_autorizado">$1.79M</div><div class="note">MXN · operaciones aceptadas/autorizadas. <span class="pm-delta" data-pm-delta="monto_autorizado"></span></div></div>
+    <div class="v25-kpi danger"><div class="lbl">Tasa promedio ofertada</div><div class="num" data-pm="verqor.tasa_promedio">41.64%</div><div class="note">Indicador crítico: la tasa aparece reiteradamente como motivo de rechazo o negociación. <span class="pm-delta" data-pm-delta="tasa_promedio"></span></div></div>
     <div class="v25-kpi amber"><div class="lbl">Ofertas pendientes</div><div class="num" data-pm="verqor.pendientes">3</div><div class="note">Casos que todavía requieren definición del prospecto.</div></div>
     <div class="v25-kpi"><div class="lbl">En negociación</div><div class="num" data-pm="verqor.negociacion">4</div><div class="note">Casos con oportunidad de ajustar monto, tasa o condiciones.</div></div>
     <div class="v25-kpi amber"><div class="lbl">Seguimiento prioritario</div><div class="num">8</div><div class="note">Pre-análisis / pendientes con más de 5 días.</div></div>
@@ -1590,7 +1596,7 @@
     </div>
   </div>
 
-  <div class="slide-foot"><span>Fuente: Finsus-Verqor-pipeline 14-09-2026(2).xlsx · tablero actualizado para corte <span data-pm="corte.corto">22 Sep 2026</span> · Confidencial</span><span class="idx">05 · Resultados</span><span class="foot-actions"><a class="nav-pill" href="#inicio">↑ Volver al inicio</a><a class="nav-pill" href="#agroindustrial">← Crédito Agroindustrial</a><a class="nav-pill primary" href="#verqor-ma">Siguiente →</a></span></div>
+  <div class="slide-foot"><span>Fuente: Finsus-Verqor-pipeline-24-09-2026 actualización.xlsx · tablero actualizado para corte <span data-pm="corte.corto">22 Sep 2026</span> · Confidencial</span><span class="idx">05 · Resultados</span><span class="foot-actions"><a class="nav-pill" href="#inicio">↑ Volver al inicio</a><a class="nav-pill" href="#agroindustrial">← Crédito Agroindustrial</a><a class="nav-pill primary" href="#verqor-ma">Siguiente →</a></span></div>
 </section>
 
 
@@ -1946,5 +1952,34 @@
     })
     .catch(err=>{console.warn('Plan Maestro: se conservan los valores de respaldo del HTML.',err);});
 })();
+
+  // Comparativo automático contra el corte anterior.
+  fetch('./history.json',{cache:'no-store'})
+    .then(r=>{if(!r.ok) throw new Error('history.json '+r.status); return r.json();})
+    .then(hist=>{
+      if(!Array.isArray(hist) || hist.length < 2) return;
+      const prev=hist[hist.length-2], cur=hist[hist.length-1];
+      const fmtNum=(n,d=0)=>Number(n).toLocaleString('es-MX',{minimumFractionDigits:d,maximumFractionDigits:d});
+      const setDelta=(key,text,dir)=>{
+        document.querySelectorAll('[data-pm-delta="'+key+'"]').forEach(el=>{
+          el.textContent=text;
+          el.classList.remove('up','down','flat');
+          el.classList.add(dir);
+        });
+      };
+      const delta=(a,b)=>Number(a)-Number(b);
+      let d=delta(cur.capturas,prev.capturas);
+      setDelta('capturas',(d>0?'↑ +':d<0?'↓ ':'→ ')+fmtNum(d)+' vs '+prev.corte,d>0?'up':d<0?'down':'flat');
+      d=delta(cur.preaprobados,prev.preaprobados);
+      setDelta('preaprobados',(d>0?'↑ +':d<0?'↓ ':'→ ')+fmtNum(d)+' vs '+prev.corte,d>0?'up':d<0?'down':'flat');
+      d=delta(cur.monto_preaprobado,prev.monto_preaprobado);
+      setDelta('monto_preaprobado',(d>0?'↑ +$':d<0?'↓ -$':'→ $')+fmtNum(Math.abs(d)/1e6,2)+'M vs '+prev.corte,d>0?'up':d<0?'down':'flat');
+      d=delta(cur.monto_autorizado,prev.monto_autorizado);
+      setDelta('monto_autorizado',(d>0?'↑ +$':d<0?'↓ -$':'→ $')+fmtNum(Math.abs(d)/1e6,2)+'M vs '+prev.corte,d>0?'up':d<0?'down':'flat');
+      d=delta(cur.tasa_promedio,prev.tasa_promedio);
+      setDelta('tasa_promedio',(d>0?'↑ +':d<0?'↓ ':'→ ')+fmtNum(d*100,2)+' pp vs '+prev.corte,d<0?'up':d>0?'down':'flat');
+    })
+    .catch(err=>console.warn('Comparativo no disponible:',err));
+
 </script>
 </body></html>
