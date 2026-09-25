@@ -1,0 +1,18 @@
+[
+  {
+    "corte": "22 Sep 2026",
+    "capturas": 98,
+    "preaprobados": 14,
+    "monto_preaprobado": 6810000,
+    "monto_autorizado": 1790000,
+    "tasa_promedio": 0.4164
+  },
+  {
+    "corte": "24 Sep 2026",
+    "capturas": 123,
+    "preaprobados": 16,
+    "monto_preaprobado": 7410000,
+    "monto_autorizado": 3130000,
+    "tasa_promedio": 0.3
+  }
+]
